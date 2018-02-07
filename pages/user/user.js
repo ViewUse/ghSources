@@ -6,7 +6,53 @@ Page({
 	data : {
 		list : [],
 		userHeaderPlain : "User",  //Origination
-		hiddenLoading : true
+		hiddenLoading : true,
+		// search bar
+		searchBarData : {
+		  inputShowed : false,
+		  inputVal : "",
+		  placeHolderTxt : "请输入搜索用户或组织"
+		}
+	},
+	showInput() {
+		this.setData({
+			searchBarData : {inputShowed : true}
+		});
+	},
+	hideInput() {
+		this.setData({
+			searchBarData : {
+			inputVal : "",
+			inputShowed : false
+			}
+		});
+	},
+	clearInput() {
+		this.setData({
+			searchBarData : {inputVal : ""}
+		});
+	},
+	inputTyping(e) {
+		this.setData({
+			searchBarData : {inputVal : e.detail.value}
+		});
+	},
+	searchInput(e) {
+		var inputVal = this.data.searchBarData.inputVal;
+		if(!inputVal || inputVal.length <= 0) {
+			showToast(this.data.searchBarData.placeHolderTxt + "!");
+			return;
+		}
+		if(inputVal == 'Origination') this.setData({userHeaderPlain : 'User'});
+		else if(inputVal == 'User') this.setData({userHeaderPlain : 'Origination'});
+		else this.setData({userHeaderPlain : inputVal});   // O: Other
+		var me = this;
+		me.requestUserDataProxy({
+			followersNum : 1000,
+			sortType : "followers",
+			language : 'javascript'
+		});
+		this.setData({currPage:1});
 	},
 	bindViewTap(e) {
 		

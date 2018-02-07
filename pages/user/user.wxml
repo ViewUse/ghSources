@@ -1,7 +1,11 @@
+<import src="../../templates/templates.wxml" />
 <view class="page">
-	<view class="container header b-horizontal">
-		<button type="primary" style="width:120px;height:36px;line-height:36px;" data-value="User" plain="{{userHeaderPlain=='User'}}" bindtap="toggleUserType">User</button>
-		<button type="primary" style="width:120px;height:36px;line-height:36px;" data-value="Origination" plain="{{userHeaderPlain=='Origination'}}" bindtap="toggleUserType">Origination</button>
+	<view class="page__hd container">
+		<template is="gh_search" data="{{...searchBarData}}"></template>	
+		<view class="container header b-horizontal">
+			<button type="primary" style="width:120px;height:36px;line-height:36px;" data-value="User" plain="{{userHeaderPlain=='User'}}" bindtap="toggleUserType">User</button>
+			<button type="primary" style="width:120px;height:36px;line-height:36px;" data-value="Origination" plain="{{userHeaderPlain=='Origination'}}" bindtap="toggleUserType">Origination</button>
+		</view>
 	</view>
 	<view class="page__bd">
 		<block wx:for="{{list}}" wx:for-index="id">
@@ -35,6 +39,9 @@
 				<view class="weui-panel__ft">
 					<view class="weui-cell weui-cell_access">
 						<view class="weui-cell__bd" style="font-size:14px;">followers:123456789</view>
+						<view class="weui-cell__bd">
+							<icon type="primary" size="14" class="fa {{item.type=='User'?'fa-user' : 'fa-users'}} float-right male-user" />
+						</view>
 					</view>
 				</view>
 			</view>

@@ -15,32 +15,37 @@ Page({
     languagePlain : 'J', // 语言是否选中
     currPage : 1,
     // search bar
-    inputShowed : false,
-    inputVal : ""
+    searchBarData : {
+      inputShowed : false,
+      inputVal : "",
+      placeHolderTxt : "请输入搜索语言"
+    }
   },
   showInput() {
     this.setData({
-      inputShowed : true
+      searchBarData : {inputShowed : true}
     });
   },
   hideInput() {
     this.setData({
-      inputVal : "",
-      inputShowed : false
+      searchBarData : {
+        inputVal : "",
+        inputShowed : false
+      }
     });
   },
   clearInput() {
     this.setData({
-      inputVal : ""
+      searchBarData : {inputVal : ""}
     });
   },
   inputTyping(e) {
     this.setData({
-      inputVal : e.detail.value
+      searchBarData : {inputVal : e.detail.value}
     });
   },
   searchInput(e) {
-    var inputVal = this.data.inputVal;
+    var inputVal = this.data.searchBarData.inputVal;
     if(!inputVal || inputVal.length <= 0) {
       showToast("请输入搜索语言!");
       return;

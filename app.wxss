@@ -2396,3 +2396,10 @@
 .search_vertical_align {
   line-height : 28px;
 }
+
+.female-user {
+  color:#DD5588;
+}
+.male-user {
+  color : #22DD55;
+}

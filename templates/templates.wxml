@@ -1,0 +1,21 @@
+<template name="gh_search">
+    <view class="weui-search-bar search_mid_high" style="width:100%;">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="{{placeHolderTxt}}" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping"/>
+          <!--<view class="weui-icon-clear" wx:if="{{inputVal.length>0}}" bindtap="clearInput">
+            <icon type="clear" size="14" />
+          </view>-->
+          <view class="weui-icon-clear" wx:if="{{inputVal.length>0}}" bindtap="searchInput">
+            <icon type="search" size="14"/>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon type="search" size="14" class="weui-icon-search" />
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+</template>

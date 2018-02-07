@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<import src="../../templates/templates.wxml" />
 <view class="page">
   <!-- <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
@@ -10,14 +11,14 @@
     </block>
   </swiper> -->
   <view class="page__hd container" style="justify-content:center;align-items:center;">
-    <view class="weui-search-bar search_mid_high" style="width:100%;">
+    <!--<view class="weui-search-bar search_mid_high" style="width:100%;">
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
           <input type="text" class="weui-search-bar__input" placeholder="请输入搜索语言" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping"/>
-          <!--<view class="weui-icon-clear" wx:if="{{inputVal.length>0}}" bindtap="clearInput">
+          <view class="weui-icon-clear" wx:if="{{inputVal.length>0}}" bindtap="clearInput">
             <icon type="clear" size="14" />
-          </view>-->
+          </view>
           <view class="weui-icon-clear" wx:if="{{inputVal.length>0}}" bindtap="searchInput">
             <icon type="search" size="14"/>
           </view>
@@ -28,8 +29,9 @@
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-    </view>
-    <view class="container" style="flex-direction:row;">
+    </view>-->
+    <template is="gh_search" data="{{...searchBarData}}"></template>
+    <view class="container b-horizontal">
       <button type="primary" class="header-button" data-value="J" plain="{{languagePlain=='J'}}" bindtap="toggleLanguagePlain">J</button>
       <button type="primary" class="header-button" data-value="H" plain="{{languagePlain=='H'}}" bindtap="toggleLanguagePlain">H</button>
       <button type="primary" class="header-button" data-value="C" plain="{{languagePlain=='C'}}" bindtap="toggleLanguagePlain">C</button>
