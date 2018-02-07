@@ -2385,3 +2385,14 @@
 .float-right {
   float : right;
 }
+
+.page__hd {
+  /*padding : 10px;*/
+}
+.search_mid_high {
+  font-size : 14px;
+  height : 44px;
+}
+.search_vertical_align {
+  line-height : 28px;
+}

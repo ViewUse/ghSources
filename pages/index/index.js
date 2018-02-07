@@ -13,7 +13,49 @@ Page({
     loading: false,
     plain: false,
     languagePlain : 'J', // 语言是否选中
-    currPage : 1
+    currPage : 1,
+    // search bar
+    inputShowed : false,
+    inputVal : ""
+  },
+  showInput() {
+    this.setData({
+      inputShowed : true
+    });
+  },
+  hideInput() {
+    this.setData({
+      inputVal : "",
+      inputShowed : false
+    });
+  },
+  clearInput() {
+    this.setData({
+      inputVal : ""
+    });
+  },
+  inputTyping(e) {
+    this.setData({
+      inputVal : e.detail.value
+    });
+  },
+  searchInput(e) {
+    var inputVal = this.data.inputVal;
+    if(!inputVal || inputVal.length <= 0) {
+      showToast("请输入搜索语言!");
+      return;
+    }
+    if(/J|javascript/g.test(inputVal)) this.setData({languagePlain : 'J'});
+    else if(/H|html/g.test(inputVal)) this.setData({languagePlain : 'H'});
+    else if(/C|css/g.test(inputVal)) this.setData({languagePlain : 'C'});
+    else this.setData({languagePlain : inputVal});   // O: Other
+    this.requestGHData({
+      language: inputVal,
+      starNum: 10000,
+      sortType: 'stars',
+      orderType: 'desc',
+      page: 1
+    });
   },
   //事件处理函数
   bindViewTap(e) {
