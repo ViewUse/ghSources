@@ -56,6 +56,7 @@ Page({
       orderType: 'desc',
       page: 1
     });
+    this.setData({currPage:1});
   },
   //事件处理函数
   bindViewTap(e) {
@@ -69,6 +70,7 @@ Page({
     if(currLanguage === 'J') return 'javascript';
     else if(currLanguage === 'H') return 'html';
     else if(currLanguage === 'C') return 'css';
+    else this.data.languagePlain;
   },
   toggleLanguagePlain(e) {
     console.log(arguments);
