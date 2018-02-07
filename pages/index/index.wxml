@@ -9,7 +9,7 @@
       </swiper-item>
     </block>
   </swiper> -->
-  <view class="page__hd" style="flex-direction:row;">
+  <view class="page__hd container" style="flex-direction:row;justify-content:center;align-items:center;">
     <button type="primary" class="header-button" data-value="J" plain="{{languagePlain=='J'}}" bindtap="toggleLanguagePlain">J</button>
     <button type="primary" class="header-button" data-value="H" plain="{{languagePlain=='H'}}" bindtap="toggleLanguagePlain">H</button>
     <button type="primary" class="header-button" data-value="C" plain="{{languagePlain=='C'}}" bindtap="toggleLanguagePlain">C</button>
@@ -35,12 +35,17 @@
         </view>
       </navigator> -->
       <view wx:else class="weui-panel weui-panel_access">
+        <!--<view class="weui-panel__hd">
+          <view class="weui-media-box__info" style="color:gray;justify-content:flex-end;">
+            <view class="weui-media-box__info__meta float_right"><text class="fa fa-star"> {{item.stargazers_count}}k</text></view>
+          </view>
+        </view>-->
         <view class="weui-panel__bd">
           <view class="weui-media-box weui-media-box_text">
             <view class="weui-media-box__title weui-media-box__title_in-text">{{item.full_name}}</view>
             <view class="weui-media-box_desc" style="font-size:14px;">{{item.description}}</view>
             <view class="weui-media-box__info" style="color:gray;justify-content:flex-end;">
-              <view class="weui-media-box__info__meta float-right"><text class="fa fa-star"> {{item.stargazers_count}}k</text></view>
+              <view class="weui-media-box__info__meta float-right"><text class="fa fa-star text-color-blue"> {{item.stargazers_count}}k</text></view>
               <view class="weui-media-box__info__meta float-right"><text class="fa fa-code-fork"> {{item.forks_count}}k</text></view>
               <view class="weui-media-box__info__meta float-right"><text class="fa fa-eye"> {{item.watchers_count}}k</text></view>
             </view>
