@@ -1,0 +1,44 @@
+<view class="page">
+	<view class="container header b-horizontal">
+		<button type="primary" style="width:120px;height:36px;line-height:36px;" data-value="User" plain="{{userHeaderPlain=='User'}}" bindtap="toggleUserType">User</button>
+		<button type="primary" style="width:120px;height:36px;line-height:36px;" data-value="Origination" plain="{{userHeaderPlain=='Origination'}}" bindtap="toggleUserType">Origination</button>
+	</view>
+	<view class="page__bd">
+		<block wx:for="{{list}}" wx:for-index="id">
+			<view wx:if="{{item.header}}">
+				<icon class="fa fa-user"> {{item.header}}</icon>
+			</view>
+			<!-- <navigator wx:else url="../detail/detail/id={{item.id}}" class="weui-media-box weui-media-box_appmsg"> redirect hover-class="className"
+				<view class="user-item">
+					<view class="container b-horizontal" style="flex:1;height:80px;border:1px solid #eaeaea;border-radius:5px;">
+						<image src="{{item.avatar_url}}" class="user-avatar" />
+						<view class="container h-right b-vertical" style="flex:1;">
+							<text>{{item.login}}</text>
+							<icon class="fa fa-user"></icon>
+						</view>
+					</view>
+				</view>
+			</navigator> -->
+			<view wx:else class="weui-panel weui-panel_access">
+				<!--<view class="weui-panel__hd">{{item.login}}</view>-->
+				<view class="weui-panel_bd">
+					<navigator url="../detail/detail/id={{item.id}}" class="weui-media-box weui-media-box_appmsg">
+						<view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+							<image class="weui-media-box__thumb" src="{{item.avatar_url}}" />
+						</view>
+						<view class="weui-media-box__bd weui-media-box__text">
+							<view class="weui-media-box__title">{{item.login}}</view>
+							<view class="weui-media-box__desc"></view>
+						</view>
+					</navigator>
+				</view>
+				<view class="weui-panel__ft">
+					<view class="weui-cell weui-cell_access">
+						<view class="weui-cell__bd" style="font-size:14px;">followers:123456789</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<loading hidden="{{hiddenLoading}}">正在加载数据...</loading>
+</view>

@@ -1,0 +1,29 @@
+.header-btn {
+    width : 120px;
+}
+.header {
+    height : 40px;
+    width : 100%;
+}
+.footer {
+    width : 100%;
+}
+.content {
+    flex : 1;
+    width : 100%;
+}
+
+.user-item {
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    padding : 8px;
+    margin : 3px;
+    background-color : #fff;
+    border : 1px solid #ccc;
+    border-radius : 5px;
+}
+.user-avatar {
+    width : 80px;
+    height : 80px;
+}

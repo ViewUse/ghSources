@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="page">
+  <!-- <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}">
+      <swiper-item class="banner" >
+          <image src="{{item.image}}"  data-id="{{item.id}}" bindtap="bindViewTap" class="banner-image" width="100%" height="100%"/>
+          <text class="banner-title">{{item.title}}</text>
+      </swiper-item>
+    </block>
+  </swiper> -->
+  <view class="page__hd" style="flex-direction:row;">
+    <button type="primary" class="header-button" data-value="J" plain="{{languagePlain=='J'}}" bindtap="toggleLanguagePlain">J</button>
+    <button type="primary" class="header-button" data-value="H" plain="{{languagePlain=='H'}}" bindtap="toggleLanguagePlain">H</button>
+    <button type="primary" class="header-button" data-value="C" plain="{{languagePlain=='C'}}" bindtap="toggleLanguagePlain">C</button>
+  </view>
+  <view class="page__bd">
+    <block wx:for="{{list}}" wx:for-index="id">
+      <text wx:if="{{item.header}}" class="sub-title">{{item.header}}</text>
+      <!-- <navigator wx:else url="../detail/detail?id={{item.id}}">
+        <view class="news-item" >
+          <view class="news-item-left">
+            <text class="news-item-title" style="display:block;">{{item.full_name}}</text>
+            <text class="news-item-title text-overflow" style="font-size:12px;">{{item.description}}</text>
+          </view>
+          <view class="news-item-right h-right">
+            <text class="fa fa-code-fork" style="font-size:0.7em;"> {{item.forks_count}}k</text>
+            <text class="fa fa-star red-content" style="font-size:0.7em;"> {{item.stargazers_count}}k</text>
+            <text class="fa fa-eye" style="font-size:0.7em;"> {{item.watchers_count}}k</text>
+            -- <image src="{{item.images[0]}}" class="news-image"/>
+            <text class="news-item-title" style="display:block;">fk({{item.forks_count}}k)</text>
+            <text class="news-item-title" style="display:block;">st({{item.stargazers_count}}k)</text>
+            <text class="news-item-title" style="display:block;">wt({{item.watchers_count}}k)</text>
+          </view>
+        </view>
+      </navigator> -->
+      <view wx:else class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">{{item.full_name}}</view>
+            <view class="weui-media-box_desc" style="font-size:14px;">{{item.description}}</view>
+            <view class="weui-media-box__info" style="color:gray;justify-content:flex-end;">
+              <view class="weui-media-box__info__meta float-right"><text class="fa fa-star"> {{item.stargazers_count}}k</text></view>
+              <view class="weui-media-box__info__meta float-right"><text class="fa fa-code-fork"> {{item.forks_count}}k</text></view>
+              <view class="weui-media-box__info__meta float-right"><text class="fa fa-eye"> {{item.watchers_count}}k</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <button type="primary" class="load-btn"  loading="{{loading}}" plain="{{plain}}" bindtap="loadMore"> 更多 </button>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载数据...</loading>
+</view>

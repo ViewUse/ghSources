@@ -1,0 +1,51 @@
+{
+  "pages":[
+    "pages/user/user",
+    "pages/index/index",
+    "pages/theme/theme",
+    "pages/detail/detail",
+    "pages/list/list"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#00a2ea",
+    "navigationBarTitleText": "GHRANK",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/icon_API.png",
+      "selectedIconPath": "images/icon_API_HL.png",
+      "text": "Repos"
+    }, {
+      "pagePath": "pages/user/user",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "Users"
+    }, {
+      "pagePath": "pages/theme/theme",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "Issues"
+    }, {
+      "pagePath": "pages/theme/theme",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "Codes"
+    }, {
+      "pagePath": "pages/theme/theme",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "Follows"
+    }]
+  },
+  "networkTimeout": {
+    "request": 120000,
+    "downloadFile": 120000
+  }
+}
