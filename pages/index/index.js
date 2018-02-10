@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
 var app = getApp()
-var utils = require('../../utils/util.js')
+var utils = require('../../utils/util.js');
+let config = require("../../config.js");
 Page({
   data: {
     list: [],
@@ -144,7 +145,9 @@ Page({
     var perPageNum = queryData.perPageNum ? queryData.perPageNum : 10;
     var isAdd = queryData.isAdd ? queryData.isAdd : false;
     this.setData({currPage:pageIndex});
-    let url = `https://api.github.com/search/repositories?q=language:${language}&stars:>=${starNum}&sort=${sortType}&order=${orderType}&page=${pageIndex}&per_page=${perPageNum}`;
+    let url = `q=language:${language}&stars:>=${starNum}&sort=${sortType}&order=${orderType}&page=${pageIndex}&per_page=${perPageNum}`;
+    url = config.REPO_URL + url;
+    //let url = `https://api.github.com/search/repositories?q=language:${language}&stars:>=${starNum}&sort=${sortType}&order=${orderType}&page=${pageIndex}&per_page=${perPageNum}`;
     /*let url = "https://api.github.com/search/repositories?";
     url += "q=language:" + language;
     url += "&stars:>=" + starNum;
@@ -155,9 +158,18 @@ Page({
     let that = this;
     that.toggleLoading(false);
     wx.request({
-      url : url,
+      url : config.SERVER_URL,
       headers : {
         'Content-Type' : "application/json"
+      },
+      data : {
+        url : config.REPO_URL,
+        q : `language:${language}`,
+        stars : `>=${starNum}`,
+        sort : `${sortType}`,
+        order : `${orderType}`,
+        page : `${pageIndex}`,
+        per_page : `${perPageNum}`
       },
       success(res) {
         if (that.isRequestSuccess(res)) {

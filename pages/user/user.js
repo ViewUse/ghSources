@@ -79,12 +79,19 @@ Page({
 		var me = this;
 		this.setData({currPage:pageIndex});
 		let url = `q=${queryData}&sort=${sortType}&order=${orderType}&page=${pageIndex}&per_page=${perPageNum}`;
+		url = config.USER_URL + url;
 		//console.log(url);
 		me.toggleLoading(false);
 		wx.request({
-			url : config.USER_URL + url,
-			headers : {
-				'Content-Type' : 'application/json'
+			url : config.SERVER_URL,
+			headers : {'Content-Type' : 'application/json'},
+			data : {
+				url : config.USER_URL,
+				q : 'user',
+				sort : `${sortType}`,
+				order : `${orderType}`,
+				per_page : `${perPageNum}`,
+				page : `${pageIndex}`
 			},
 			success(responseData) {
 				if(responseData && responseData.statusCode == 200) {
