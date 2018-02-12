@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<import src="../../templates/templates.wxml" />
+<import src="../../templates/searchbar.wxml" />
 <view class="page">
   <!-- <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
