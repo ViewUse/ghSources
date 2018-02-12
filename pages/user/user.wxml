@@ -23,9 +23,9 @@
 					</view>
 				</view>
 			</navigator> -->
-			<view wx:else class="weui-panel weui-panel_access">
+			<view wx:else class="weui-panel weui-panel__access">
 				<!--<view class="weui-panel__hd">{{item.login}}</view>-->
-				<view class="weui-panel_bd">
+				<view class="weui-panel__bd">
 					<navigator url="../detail/detail/id={{item.id}}" class="weui-media-box weui-media-box_appmsg">
 						<view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
 							<image class="weui-media-box__thumb" src="{{item.avatar_url}}" />

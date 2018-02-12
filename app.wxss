@@ -2391,7 +2391,13 @@
 }
 .search_mid_high {
   font-size : 14px;
+  /* 
+  1rpx = (设计稿宽/750)px
+  1px = (750/设计稿宽) rpx
+  1rem = (750/20)rpx (规定20rem为屏幕宽度)
   height : 44px;
+  */
+  height : 66rpx;
 }
 .search_vertical_align {
   line-height : 28px;
