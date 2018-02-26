@@ -1,3 +1,4 @@
+//https://davidcai1993.gitbooks.io/typescript-handbook/content/Generics.html
 /**
  * 1.临时变量,
  * 2.get/set 特性
