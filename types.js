@@ -1,29 +1,16 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-            t[p[i]] = s[p[i]];
-    return t;
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+//https://davidcai1993.gitbooks.io/typescript-handbook/content/Generics.html
 /**
  * 1.临时变量,
  * 2.get/set 特性
  * 3. static
  * 4. 原型链属性extends
  */
-var Student = /** @class */ (function () {
+var Student = (function () {
     function Student(firstName, middleName, lastName) {
         this.firstName = firstName;
         this.middleName = middleName;
@@ -32,10 +19,10 @@ var Student = /** @class */ (function () {
     }
     return Student;
 }());
-var Lucy = /** @class */ (function (_super) {
+var Lucy = (function (_super) {
     __extends(Lucy, _super);
     function Lucy() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        _super.apply(this, arguments);
     }
     Lucy.prototype.say = function () {
         console.log("earth language is english!");
@@ -90,7 +77,7 @@ function sumMatrix(maxtrix) {
     return sum;
 }
 function timeoutCalc() {
-    var _loop_1 = function (i) {
+    var _loop_1 = function(i) {
         setTimeout(function () { console.log(i); }, i * 10);
     };
     for (var i = 0; i < 10; i++) {
@@ -111,7 +98,7 @@ function funcArrValue(_b) {
     var _a = [5, 6];
     console.log(firstVal, secondVal);
 }
-funcArrValue(inputValue);
+funcArrValue([5, 9]);
 var _c = [1, 2, 3, 4], firstRestVal = _c[0], restVal = _c.slice(1);
 console.log(firstRestVal, restVal);
 var ignoreOtherVal = [1, 2, 3, 4][0]; // ignoreOtherVal=1;
@@ -123,9 +110,9 @@ var objVal = {
 };
 // 声明式赋值
 var a = objVal.a, b = objVal.b;
-var b = objVal.b, objOther = __rest(objVal, ["b"]); // b = objVal.b, objOther={a:'about',c'name'};
+//let {b, ...objOther} = objVal;  // b = objVal.b, objOther={a:'about',c'name'};
 // 非声明式赋值(需要加括号,javascript会把{}解析成块作用域)
-(_e = { test: 'test', test2: 'test2' }, test = _e.test, test2 = _e.test2); // 
+(_e = { test: 'test', test2: 'test2' }, test = _e.test, test2 = _e.test2, _e); // 
 // 为变量指定类型
 var _f = { varA: 'variableA', varB: 123 }, varA = _f.varA, varB = _f.varB;
 // 必须要传具有a一个属性的对像(b属性为可选)，要不然编译到javascript会报错
@@ -163,7 +150,7 @@ searchUFunc = function (source, subString) {
     var result = source.search(subString);
     return result > -1;
 };
-var NumberArray = /** @class */ (function () {
+var NumberArray = (function () {
     function NumberArray(h, m) {
     }
     return NumberArray;
@@ -171,7 +158,7 @@ var NumberArray = /** @class */ (function () {
 var myArray;
 myArray = ["Bob", "Fred"];
 console.log(myArray[0]);
-var Animal = /** @class */ (function () {
+var Animal = (function () {
     function Animal(theName, theSex, age) {
         if (theSex === void 0) { theSex = 'male'; }
         if (age === void 0) { age = 10; }
@@ -185,10 +172,10 @@ var Animal = /** @class */ (function () {
     };
     return Animal;
 }());
-var Snake = /** @class */ (function (_super) {
+var Snake = (function (_super) {
     __extends(Snake, _super);
     function Snake(name) {
-        return _super.call(this, name) || this;
+        _super.call(this, name);
     }
     Snake.prototype.move = function (meters) {
         if (meters === void 0) { meters = 5; }
@@ -197,10 +184,10 @@ var Snake = /** @class */ (function (_super) {
     };
     return Snake;
 }(Animal));
-var Horse = /** @class */ (function (_super) {
+var Horse = (function (_super) {
     __extends(Horse, _super);
     function Horse(name) {
-        return _super.call(this, name) || this;
+        _super.call(this, name);
     }
     Horse.prototype.move = function (meters) {
         if (meters === void 0) { meters = 45; }
@@ -214,7 +201,7 @@ var tom = new Horse("Tommy the Palomino!");
 sam.move();
 tom.move(34);
 var passcode = "secret passcode";
-var Employee = /** @class */ (function () {
+var Employee = (function () {
     function Employee() {
         this._fullName = "_fn";
     }
@@ -236,7 +223,7 @@ var Employee = /** @class */ (function () {
 var employee = new Employee();
 //employee.fullName = "Bob Smith!";
 console.log(employee.fullName);
-var Grid = /** @class */ (function () {
+var Grid = (function () {
     function Grid(scale) {
         this.scale = scale;
     }
@@ -253,10 +240,11 @@ console.log(Grid.origin);
 var employeeMaker = Grid;
 var validators = {};
 console.log(validators);
-myArray.forEach(function (s) {
+/*myArray.forEach(s => {
     console.log(s);
-});
+});*/
 var suits = ["hearts", "spades", "clubs", "diamonds"];
+// ts 函数重载
 function pickCard(x) {
     var pickedCard = Math.floor(Math.random() * x.length);
     return pickedCard;
@@ -265,5 +253,118 @@ function pickCard(x) {
     var pickedSuit = Math.floor(x / 13);
     return { suit: suits[pickedSuit], card: x % 13 };
 }
+// 泛型(重温)
+function identity(arg) {
+    return arg;
+}
+// first
+var output = identity("MyString");
+// second
+//output = identity("my_content");   // 类型参数推导
+function loggingIdentity(arg) {
+    console.log(arg.length);
+    return arg;
+}
+// 或者
+function loggingIdentity2(arg) {
+    return arg;
+}
+// 1
+var myIndentity = identity;
+// 2
+var myIndentity2 = identity;
+// 3
+var myIndentity3 = identity;
+// 泛型类
+var GenericNumber = (function () {
+    function GenericNumber() {
+    }
+    return GenericNumber;
+}());
+// one
+var myGenericNumber = new GenericNumber();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function (x, y) { return x + y; };
+// two
+var stringNumeric = new GenericNumber();
+stringNumeric.zeroValue = "";
+stringNumeric.add = function (x, y) { return x + y; };
+var myInIdentity = identity;
+var myInIdentity2 = identity;
+// 限制泛型，只能传带有 .length属性的参数
+function loggingIdentity4(arg) {
+    return arg;
+}
+function find(n, s) {
+}
+// 混合(重温)
+/**
+ * runtime library
+ */
+function applyMixins(derivedCtor, baseCtors) {
+    baseCtors.forEach(function (baseCtor) {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach(function (name) {
+            derivedCtor.prototype[name] = baseCtor.prototype[name];
+        });
+    });
+}
+var Disposable = (function () {
+    function Disposable() {
+    }
+    Disposable.prototype.dispose = function () {
+        this.isDisposed = true;
+    };
+    return Disposable;
+}());
+var Activatable = (function () {
+    function Activatable() {
+    }
+    Activatable.prototype.activate = function () {
+        this.isActive = true;
+    };
+    Activatable.prototype.deactivate = function () {
+        this.isActive = false;
+    };
+    return Activatable;
+}());
+var SmartObject = (function () {
+    function SmartObject() {
+        var _this = this;
+        // Disposable
+        this.isDisposed = false;
+        // Activate
+        this.isActive = false;
+        setInterval(function () { return console.log(_this.isActive + " : " + _this.isDisposed); }, 500);
+    }
+    SmartObject.prototype.interact = function () {
+        this.activate();
+    };
+    return SmartObject;
+}());
+applyMixins(SmartObject, [Disposable, Activatable]);
+var smartObj = new SmartObject();
+var box = { height: 5, width: 6, scale: 10 };
+// 类型兼容性
+// 函数参数兼容
+var compatible = function (a) { return 0; };
+var compatible2 = function (b, s) { return 0; };
+var compatible3 = function (s, d) { return 0; };
+// compatible参数与compatible按顺序完整匹配,a与b的类型相同且必须相同
+compatible2 = compatible; // OK, 
+//compatible3 = compatible;   // error
+//compatible = compatible2;   // error
+// 函数返回值兼容，源函数(赋值左边)的返回值是目标函数(赋值右边)的返回值的子集。
+var funcX = function () { return ({ name: 'Alice' }); };
+var funcY = function () { return ({ name: 'Alice', location: 'Seattle' }); };
+funcX = funcY;
+// funcY = funcX;
+var Status;
+(function (Status) {
+    Status[Status["Ready"] = 0] = "Ready";
+    Status[Status["Waiting"] = 1] = "Waiting";
+})(Status || (Status = {}));
+;
+var statusVal = Status.Ready;
+statusVal = Color.Red; // error
 var _b, _e;
 //# sourceMappingURL=types.js.map
